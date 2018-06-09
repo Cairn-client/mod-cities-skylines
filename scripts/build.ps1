@@ -1,3 +1,6 @@
+# Clear host
+Clear-Host
+
 # Variables
 $ModFolder = "$env:LOCALAPPDATA\Colossal Order\Cities_Skylines\Addons\Mods\CitiesSkylinesMultiplayer"
 $BuildFolder = "$env:TargetDir"
