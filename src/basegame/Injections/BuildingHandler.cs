@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using CSM.API;
 using CSM.API.Commands;
 using CSM.API.Helpers;
 using CSM.BaseGame.Commands.Data.Buildings;
@@ -34,7 +33,7 @@ namespace CSM.BaseGame.Injections
             }
 
             // Extracting facility AI generates random building, we don't sync it here
-            if (tool.m_prefab.m_buildingAI is ExtractingFacilityAI)
+            if (tool.m_prefab != null && tool.m_prefab.m_buildingAI is ExtractingFacilityAI)
             {
                 __state.run = false;
                 return;
@@ -320,11 +319,19 @@ namespace CSM.BaseGame.Injections
 
         public static IEnumerable<MethodBase> TargetMethods()
         {
-            foreach (Type t in new Type[] {typeof (CityServiceWorldInfoPanel), typeof(EventBuildingWorldInfoPanel),
-                typeof(UniqueFactoryWorldInfoPanel), typeof(WarehouseWorldInfoPanel)})
+            foreach (Type t in new Type[] {typeof (CityServiceWorldInfoPanel), typeof(CustomServiceBuildingWorldInfoPanel),
+                typeof(EventBuildingWorldInfoPanel), typeof(UniqueFactoryWorldInfoPanel), typeof(WarehouseWorldInfoPanel)})
             {
                 // See decompiled code with compiler generated classes
-                int anonStoreId = (t == typeof(CityServiceWorldInfoPanel)) ? 6 : 2;
+                int anonStoreId = 2;
+                if (t == typeof(CityServiceWorldInfoPanel))
+                {
+                    anonStoreId = 8; // Note: If this id needs changing, also change in the BuildingRebuildHandler!
+                }
+                else if (t == typeof(CustomServiceBuildingWorldInfoPanel))
+                {
+                    anonStoreId = 1;
+                }
                 Type delegateHandler = t.GetNestedType("<OnRebuildClicked>c__AnonStorey" + anonStoreId, ReflectionHelper.AllAccessFlags);
                 yield return delegateHandler.GetMethod("<>m__0", ReflectionHelper.AllAccessFlags);
             }
