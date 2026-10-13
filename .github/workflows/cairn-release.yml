@@ -49,10 +49,18 @@ jobs:
           Invoke-WebRequest https://storage.citiesskylinesmultiplayer.com/Assemblies.zip -OutFile Assemblies.zip -UseBasicParsing
           Expand-Archive Assemblies.zip assemblies -Force
 
+      # the project's scripts/build.ps1 looks for MSBuild only in the Visual Studio 2017-2022 folders, which a current runner no longer has
+      # there; this is the command it runs, with the MSBuild the runner's Visual Studio has
       - name: Build the mod
         shell: pwsh
         working-directory: src
-        run: powershell.exe -NoP -NonI -Command "../scripts/build.ps1 -Build"
+        run: |
+          $vswhere = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio\Installer\vswhere.exe'
+          $msbuild = & $vswhere -latest -requires Microsoft.Component.MSBuild -find 'MSBuild\**\Bin\MSBuild.exe' | Select-Object -First 1
+          if (-not $msbuild) { throw 'MSBuild was not found' }
+          Write-Host "Using MSBuild at: $msbuild"
+          & $msbuild ../CSM.sln /restore /t:CSM /p:Configuration=Release /p:Platform="Any CPU"
+          if ($LASTEXITCODE -ne 0) { throw 'the build failed' }
 
       - name: Build the pack
         shell: pwsh
