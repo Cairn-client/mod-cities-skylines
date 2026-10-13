@@ -1,68 +1,20 @@
-# CSM - Cities: Skylines Multiplayer
+# CSM (Cities: Skylines Multiplayer) on Cairn
 
-[![Discord](https://img.shields.io/discord/508902220943851522.svg)](https://discord.gg/RjACPhd)
-[![Build status](https://github.com/CitiesSkylinesMultiplayer/CSM/workflows/CI/badge.svg)](https://github.com/CitiesSkylinesMultiplayer/CSM/actions)
-[![Steam File Size](https://img.shields.io/steam/size/1558438291.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=1558438291)
+A fork of [CitiesSkylinesMultiplayer/CSM](https://github.com/CitiesSkylinesMultiplayer/CSM), the multiplayer mod for **Cities: Skylines**, made to run on the [Cairn launcher](https://github.com/Cairn-client/launcher).
 
-## Quick Links
+## What we changed
 
-- [Discord Server](https://discord.gg/RjACPhd)
-- [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=1558438291)
-- [Developer Resources](https://github.com/DominicMaas/Tango/wiki/Developer-Resources)
-- [FAQ](https://github.com/DominicMaas/Tango/wiki/Frequently-Asked-Questions)
-- [Patreon](https://www.patreon.com/CSM_MultiplayerMod)
+- A Cairn pack: the mod is published as a pack the launcher installs in the game's mods folder and updates.
 
-## Introduction
-CSM is an in-development multiplayer mod for Cities: Skylines. This mod aims to provide a simple client-server experience where users can play and build together in a single game.
+The mod's own code and credits are its authors'. Everything else is as upstream; see [UPSTREAM.md](UPSTREAM.md) for the version this fork is based on.
 
-Instructions to download and install the latest build of the mod can be seen below. Frequently asked questions, developer information and other information can be found on the GitHub [wiki](https://github.com/DominicMaas/Tango/wiki) for this mod.
+## Play it
 
-Feel free to join the development Discord server [here](https://discord.gg/RjACPhd).
+1. Install [Cairn](https://github.com/Cairn-client/launcher/releases/latest).
+2. Open Cities: Skylines in the Library, download the mod and press Play.
 
-This mod and its source code is licensed under the MIT license.
+Each release of this repository is the pack the launcher downloads.
 
-## Download & Install
+## Licence
 
-The easiest way to install this mod is from the [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=1558438291). Remember to enable it in the content manager.
-
-To install the mod for other platforms than Steam, follow the instructions below:
-
-1. Download the [latest release from Github](https://github.com/DominicMaas/Tango/releases/latest)
-2. Extract the folder and either run the install script, or copy all the *.dll files to the mod directory:
-  - Windows: `%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Addons\Mods\CSM`
-  - Mac OSX: `~/Library/Application Support/Colossal Order/Cities_Skylines/Addons/Mods/CSM`
-  - Linux: `~/.local/share/Colossal Order/Cities_Skylines/Addons/Mods/CSM`
-3. Open Cities: Skylines and enable the mod in the content manager
-
-You can also download the latest development builds by following the instructions below:
-
-1. Navigate to the list of CI builds [here](https://github.com/CitiesSkylinesMultiplayer/CSM/actions?query=workflow%3ACI)
-2. Click on the latest build with a green checkmark
-3. Under the `Artifacts` heading, click on `CSM [Version]`
-
-If you want to build the mod yourself, follow the developer instructions in the wiki located [here](https://github.com/DominicMaas/Tango/wiki/Developer-Resources).
-
-## Usage (Server)
-
-1. Create a new game or open an existing game (if using an existing game, make a backup!)
-2. Open the "Pause Menu" (using the ESC key)
-3. Click the `Multiplayer` button on the top of the menu.
-4. Update any of the fields to your liking, click `Create Server`.
-
-## Usage (Clients)
-
-1. Click `Join Game` on the main menu.
-2. Enter the server and your information.
-3. Click `Connect to Server` and wait up to 60 seconds.
-
-## Patreons
-We would like to give a special thanks to the people backing us financialy through [Patreon](https://www.patreon.com/CSM_MultiplayerMod)
-- Henrik Nielsen
-- Daimyo
-- Motey
-- Ewan Colyer
-- Kevin Prüßner
-- C Zhang
-
-## Contributors
-A full list of contributors can be found [here](https://github.com/DominicMaas/Tango/graphs/contributors).
+MIT, as upstream. Cities: Skylines belongs to Colossal Order; this project is unofficial and not affiliated with or endorsed by them.
