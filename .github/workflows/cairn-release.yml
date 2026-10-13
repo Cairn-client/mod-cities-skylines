@@ -40,7 +40,7 @@ jobs:
         working-directory: src
         env:
           CSM_VERSION: ${{ steps.csm_version.outputs.version }}
-        run: ../scripts/update-version.ps1 -filePattern AssemblyInfo.cs -assemblyVersion "$env:CSM_VERSION.0.0" -assemblyFileVersion "$env:CSM_VERSION.0.0"
+        run: powershell.exe -NoP -NonI -Command "../scripts/update-version.ps1 -filePattern AssemblyInfo.cs -assemblyVersion $env:CSM_VERSION.0.0 -assemblyFileVersion $env:CSM_VERSION.0.0"
 
       # the assemblies the project's own CI builds against, from the project's own storage
       - name: Download the assemblies the mod is built against
@@ -52,7 +52,7 @@ jobs:
       - name: Build the mod
         shell: pwsh
         working-directory: src
-        run: ../scripts/build.ps1 -Build
+        run: powershell.exe -NoP -NonI -Command "../scripts/build.ps1 -Build"
 
       - name: Build the pack
         shell: pwsh
