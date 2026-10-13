@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "id": "cities-skylines",
+  "name": "Cities: Skylines",
+  "developer": "Colossal Order",
+  "franchise": "Cities: Skylines",
+  "steamAppId": 255710,
+  "exe": "Cities.exe",
+  "description": "Build a city together. The Cities: Skylines Multiplayer mod lets several players work in the same city at once: the same map, roads, zoning and buildings, with a shared simulation.",
+  "accent": "#4CAF6A",
+  "images": {
+    "background": "cities-skylines.jpg",
+    "logo": "cities-skylines-logo.png",
+    "hero": "cities-skylines-hero.jpg",
+    "poster": "cities-skylines-poster.jpg",
+    "screenshots": [ "cities-skylines-shot-1.jpg", "cities-skylines-shot-2.jpg" ]
+  },
+  "ownSession": true,
+  "setup": [
+    { "kind": "steam-running" },
+    { "kind": "steam-app", "appId": 255710, "title": "Cities: Skylines", "detail": "Install Cities: Skylines from your Steam library." },
+    { "kind": "game-found" },
+    { "kind": "mod-installed", "detail": "Download the mod above: Cairn puts it in the game's local mods folder." }
+  ],
+  "hostSteps": [
+    "Download the mod above. Cairn puts it in the game's local mods folder (in your Local AppData) and keeps it up to date.",
+    "Press Play, open the Content Manager, then Mods, and switch on CSM.",
+    "Load a city (or start one; make a backup of an existing one). Open the pause menu with Esc and press Multiplayer at the top.",
+    "Adjust the fields if you like and press Create Server. Share your address with your friends (the mod's port, 4230, must be open)."
+  ],
+  "joinSteps": [
+    "Download the mod above, the same version as the host's, then press Play and switch on CSM in the Content Manager.",
+    "In the main menu choose Multiplayer.",
+    "Enter the host's address and join: the host's city is sent to you."
+  ],
+  "features": [
+    { "title": "Sessions", "items": [
+      { "name": "Host and join", "detail": "Host from the pause menu and let friends join by address. Everyone needs the same version of the mod. If you also subscribed to CSM on the Steam Workshop, unsubscribe so it is not loaded twice.", "status": "inTest" },
+      { "name": "Kept up to date", "detail": "Cairn installs the mod in the game's local mods folder and updates it when a new version is released." }
+    ] },
+    { "title": "City", "items": [
+      { "name": "One city", "detail": "Roads, zoning, buildings, services and the economy are shared between players.", "status": "inTest" },
+      { "name": "Players", "detail": "Each player's cursor and tools are shown to the others.", "status": "inTest" }
+    ] }
+  ]
+}
